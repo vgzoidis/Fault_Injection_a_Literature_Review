@@ -1,0 +1,16 @@
+\section{Discussion \& Conclusion}
+As semiconductor technology scales, the susceptibility of mission-critical systems to transient faults necessitates a rigorous and multi-faceted reliability assessment. This work has analyzed the different techniques for achieving Fault Injection, demonstrating that no single approach can provide complete results. Alternatively, they serve complementary roles across the system design's life cycle.
+
+Hardware-based techniques remain superior for replicating complex physical phenomena, such as Multiple-Bit Upsets (MBUs), with high fidelity. However, as systems grow in complexity, the abstraction provided by Software-Implemented Fault Injection (SWIFI) becomes crucial. The analysis of NASA’s Core Flight System highlighted SWIFI's efficacy in pinpointing application level vulnerabilities, identifying a system's scheduler as a critical failure point without requiring specialized physical setups.
+
+Crucially, this paper also examined the role of Simulation and Emulation in bridging the gap between software logic and physical implementation. While Instruction Set Architecture (ISA) simulators allow for rapid software tuning, they often lack the micro architectural fidelity to model hardware exceptions accurately, potentially underestimating reliability metrics by up to 10\% compared to physical emulation.
+
+Conversely, Register Transfer Level (RTL) simulation has proven indispensable for early hardware optimization. As demonstrated by the analysis of spaceborne FPGAs, RTL-based injection enables the quantification of the \textit{Power-Delay-Area Product (PDAP)}.
+
+Ultimately, comprehensive reliability engineering requires a hybrid strategy:
+\begin{itemize}
+    \item \textbf{RTL Simulation} for early "reliability vs. resource" trade-off analysis and sizing of fault tolerance mechanisms.
+    \item \textbf{SWIFI} for verifying software logic, task isolation, and error recovery routines.
+    \item \textbf{Hardware Emulation} for final validation where micro-architectural timing and exception handling are paramount.
+\end{itemize}
+By integrating these diverse methodologies, engineers can ensure the design of resilient systems capable of robust operation in harsh, fault prone environments.

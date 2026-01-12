@@ -1,0 +1,57 @@
+\documentclass[conference, 12pt]{IEEEtran}
+\linespread{1.1}
+
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{lipsum}
+\usepackage{microtype}
+\setlength{\emergencystretch}{3em}
+\tolerance=1000
+
+\title{An Analysis on Testing Reliability Using Fault Injection }
+
+\author{
+    \IEEEauthorblockN{Vasileios Zoidis, Savvas Tzanetis}
+    \IEEEauthorblockA{
+        Department of Electrical and Computer Engineering\\
+        Aristotle University of Thessaloniki
+    }
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Electronic systems, particularly space-borne applications, are increasingly vulnerable to temporary and permanent failures caused by environmental factors — most notably ionizing radiation. This vulnerability is becoming more pronounced as semiconductor feature sizes shrink and technologies scale. Consequently, the resilience of safety-critical aerospace and embedded platforms is compromised by faults such as Single Event Upsets (SEUs) and Multiple-Bit Upsets (MBUs). To mitigate these risks, systematic reliability assessment has become an essential component of system validation, necessitating the purposeful injection of errors to monitor system behavior.
+
+This paper presents a comprehensive overview of fault injection as a reliability evaluation technique, tracing its evolution from historical origins to contemporary implementations. It examines modern fault injection methodologies across hardware, software, simulation and emulation domains, highlighting their ability to realistically reproduce radiation-induced faults and timing violations. Furthermore, representative case studies from the literature are analyzed to illustrate how fault injection validates fault tolerance mechanisms in embedded and flight software systems.
+
+Overall, this work demonstrates that fault injection remains an indispensable tool for reliability engineering. While no single approach provides complete coverage, the combined use of hardware, software, simulation and emulation-based techniques enables comprehensive reliability assessment, supporting the design of resilient systems capable of operating in fault-prone environments.
+\end{abstract}
+
+% --- Introduction ---
+\input{sections/introduction}
+
+% --- Historical Overview ---
+\input{sections/historical}
+
+% ----- Hardware -----
+\input{sections/hardware}
+
+% ----- Software -----
+\input{sections/software}
+
+% --- Emulation/Simulation ---
+\input{sections/emulation-simulation}
+
+% --- Conclusion ---
+\input{sections/conclusion}
+
+% --- Bibliography ---
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,22 @@
+\section{Historical Overview}
+
+\subsection{Early Physical Fault Injection}
+The earliest fault injection efforts were closely tied to the study of radiation effects on electronic systems, driven primarily by organizations such as IBM and NASA in the 1970s. During this period, reliability concerns were motivated by space exploration and high-altitude avionics, where radiation exposure is significantly higher than at ground level.\\
+
+Initial techniques relied on direct physical fault injection by attempting to reproduce the effects of radiation-induced disturbances using particle accelerators. Such accelerators were capable of inducing heavy-ion and neutron irradiation to electronic components, causing SEUs. While this approach provided high physical fidelity, it was expensive, time consuming, and limited to specialized facilities.\\
+
+Another early approach was direct fault injections by manipulating the voltage and amperage in the pins of a processor, resulting in the unexpected tweaking of signal timings and causing transient or permanent faults. As can be imagined though, this technique became obsolete as integrated circuits became more complex and pin counts both increased while their size decreased, ultimately becoming impossible to tweak. Furthermore, deeply embedded transistors and internal interconnects were no longer directly accessible from package pins.
+
+\subsection{Transition to Software-Implemented Fault Injection}
+After the physical constraints that appeared in the early days of fault injection, in the late 1980s and early 1990s, the research community focused on other methods for causing fault injection, where the emergence of software implemented fault injection (SWIFI) techniques began. This technique relied on manipulating a system's state through software mechanisms running on the system hardware itself.\\
+
+Seminal tools such as \textit{FIAT} (1990) \cite{FIAT} and \textit{FERRARI} (1992) \cite{FERRARI} introduced controlled corruption of memory locations, registers, and variables during program execution. In general, a typical SWIFI workflow involves temporarily halting program execution, flipping one or more bits at a selected memory address, and resuming execution to observe the resulting behavior. This approach effectively simulates SEUs without requiring specialized hardware or radiation facilities.\\
+
+Using software techniques significantly reduced the cost and time of creating tests, and increased experimental flexibility. However, it also introduced abstraction limitations, as not all hardware level faults such as timing violations or power transients were able to be reproduced.
+
+\subsection{Pre-Silicon Simulation and Emulation-Based Injection}
+Lastly, as system complexity increased, the validation of a system's reliability shifted to earlier stages of design and fabrication. Simulation and emulation based fault injection techniques arose, operating on hardware description language (HDL) models of digital systems before physical manufacturing.\\
+
+Tools such as \textit{MEFISTO} \cite{MEFISTO} enable designers to test fault tolerance in digital systems by intentionally inserting faults into the hardware description language model during simulation. Faults may include bit flips in registers, corrupted signals in interconnects, or timing delays in combinational logic. This virtual environment grants comprehensive control over the system's state, allowing for precise fault injection and observation of the resulting error propagation through the simulated architecture.\\
+
+While simulation based methods are significantly faster and cheaper than physical testing, they rely on the accuracy of the underlying models. Missing architectural details or unmodeled hardware exceptions can lead to discrepancies between simulated behavior and real hardware responses.
